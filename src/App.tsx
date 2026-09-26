@@ -1,7 +1,7 @@
 import { useRef, Suspense } from 'react';
 import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { TextureLoader } from 'three';
-import type { Mesh, Group  } from 'three';
+import type { Mesh  } from 'three';
 import { OrbitControls } from '@react-three/drei';
 import './App.css';
 
@@ -26,7 +26,7 @@ function Spacetrash(){
     const meshRef = useRef<Mesh>(null);
     const angle = useRef(0);
   useFrame((_state, delta) => {
-    angle.current += delta * 0.1; // orbit speed, radians/sec
+    angle.current += delta * 0.1;
     if (meshRef.current) {
       const radius = 1.2;
       meshRef.current.position.x = Math.cos(angle.current) * radius;
